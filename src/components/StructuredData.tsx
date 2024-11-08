@@ -6,7 +6,7 @@ export default function StructuredData() {
     "description": "Professional cybersecurity services including penetration testing, social engineering, and security assessments.",
     "url": "https://redhatexpertise.netlify.app",
     "telephone": "(+223) 77544177",
-    "email": "redhatexpertise@yahoo.com",
+    "email": "redhatexpertise@proton.me",
     "areaServed": "Global",
     "serviceType": [
       "Penetration Testing",
@@ -19,8 +19,7 @@ export default function StructuredData() {
       "24/7 Monitoring"
     ],
     "sameAs": [
-      // Add your social media profiles here
-      "https://linkedin.com/company/redhat-expertise",
+      "https://www.linkedin.com/in/chouaib-youssouf-togola-3a6664336/",
       "https://github.com/redhat-expertise"
     ]
   };
