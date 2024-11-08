@@ -13,7 +13,11 @@ export default function Navbar() {
     { name: 'Contact', href: '/contact' },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => {
+    if (path === '/' && location.pathname === '/') return true;
+    if (path !== '/' && location.pathname.startsWith(path)) return true;
+    return false;
+  };
 
   return (
     <nav className="bg-gray-900">
@@ -22,7 +26,7 @@ export default function Navbar() {
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <Shield className="h-8 w-8 text-blue-500" />
-              <span className="ml-2 text-white font-bold text-xl">CyberGuard</span>
+              <span className="ml-2 text-white font-bold text-xl">RedHat</span>
             </Link>
           </div>
           
@@ -41,12 +45,6 @@ export default function Navbar() {
                   {item.name}
                 </Link>
               ))}
-              <Link
-                to="/contact"
-                className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors"
-              >
-                Get a Quote
-              </Link>
             </div>
           </div>
 
@@ -78,13 +76,6 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
-            <Link
-              to="/contact"
-              className="block bg-blue-600 text-white px-4 py-2 rounded-md text-base font-medium hover:bg-blue-700 transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Get a Quote
-            </Link>
           </div>
         </div>
       )}

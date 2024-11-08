@@ -4,20 +4,22 @@ import { useRef } from 'react';
 interface ParallaxSectionProps {
   children: React.ReactNode;
   className?: string;
+  backgroundImage?: string;
 }
 
-export default function ParallaxSection({ children, className = '' }: ParallaxSectionProps) {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"]
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-
+export default function ParallaxSection({ children, className, backgroundImage }: ParallaxSectionProps) {
   return (
-    <div ref={ref} className={`relative ${className}`}>
-      <motion.div style={{ y }}>{children}</motion.div>
+    <div 
+      className={`${className || ''}`}
+      style={{
+        backgroundImage: backgroundImage,
+        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover'
+      }}
+    >
+      {children}
     </div>
   );
 }

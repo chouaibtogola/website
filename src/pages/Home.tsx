@@ -10,10 +10,7 @@ export default function Home() {
       {/* Hero Section */}
       <ParallaxSection
         className="relative bg-cover bg-center py-32"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80")',
-        }}
+        backgroundImage="linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80')"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedText
@@ -75,9 +72,10 @@ export default function Home() {
       {/* Features Section */}
       <div className="bg-gray-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Technical Security Testing */}
           <div className="text-center mb-12">
             <AnimatedText
-              text="Our Core Services"
+              text="Technical Security Testing"
               className="text-3xl font-bold text-gray-900"
             />
             <motion.p
@@ -87,12 +85,12 @@ export default function Home() {
               viewport={{ once: true }}
               className="mt-4 text-xl text-gray-600"
             >
-              Empowering Your Security
+              Comprehensive System Security Assessment
             </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+            {technicalServices.map((service, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
@@ -100,17 +98,58 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05 }}
-                className="bg-white rounded-lg shadow-lg p-6 transition-all duration-300"
+                className="bg-gradient-to-br from-white to-blue-50 rounded-xl shadow-xl p-8 transition-all duration-300 border border-blue-100"
               >
                 <motion.div
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.5 }}
-                  className="flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 mb-4"
+                  className="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 mb-6"
                 >
-                  <Shield className="h-6 w-6 text-blue-600" />
+                  <Shield className="h-7 w-7 text-white" />
                 </motion.div>
-                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">{service.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{service.description}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Social Engineering Services */}
+          <div className="text-center mb-12">
+            <AnimatedText
+              text="Social Engineering Services"
+              className="text-3xl font-bold text-gray-900"
+            />
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+              viewport={{ once: true }}
+              className="mt-4 text-xl text-gray-600"
+            >
+              Human-Focused Security Assessment
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {socialServices.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.05 }}
+                className="bg-gradient-to-br from-white to-blue-50 rounded-xl shadow-xl p-8 transition-all duration-300 border border-blue-100"
+              >
+                <motion.div
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                  className="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 mb-6"
+                >
+                  <Shield className="h-7 w-7 text-white" />
+                </motion.div>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">{service.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{service.description}</p>
               </motion.div>
             ))}
           </div>
@@ -154,32 +193,35 @@ export default function Home() {
   );
 }
 
-const services = [
+const technicalServices = [
   {
     title: 'Penetration Testing',
     description:
-      'Uncover hidden vulnerabilities through simulated real-world attacks.',
+      'Uncover hidden vulnerabilities through simulated real-world attacks on your systems and infrastructure.',
   },
   {
     title: 'Vulnerability Assessments',
-    description: 'Stay one step ahead with thorough security gap analysis.',
-  },
-  {
-    title: 'Phishing Simulations',
-    description:
-      'Train your team to recognize and respond to social engineering threats.',
+    description: 'Comprehensive scanning and analysis to identify security gaps in your systems.',
   },
   {
     title: 'OWASP Top 10 Assessment',
-    description: 'Evaluate your applications against common security risks.',
+    description: 'Thorough evaluation of your web applications against the most critical security risks.',
+  },
+];
+
+const socialServices = [
+  {
+    title: 'Phishing Simulations',
+    description:
+      'Test your team with sophisticated phishing campaigns that mimic real-world attacks. We help identify vulnerable employees and provide targeted training to strengthen your human firewall.',
   },
   {
     title: 'Social Engineering Testing',
     description:
-      "Test your organization's resilience against human manipulation tactics.",
+      'Challenge your security culture with controlled social engineering attempts. We simulate various attack vectors to identify and fix human vulnerabilities before real attackers do.',
   },
   {
-    title: '24/7 Support',
-    description: 'Round-the-clock assistance for your security needs.',
+    title: 'Security Awareness Training',
+    description: 'Transform your employees from security risks into your strongest defense line through engaging, interactive training programs tailored to your organization.',
   },
 ];
