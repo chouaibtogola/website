@@ -1,97 +1,76 @@
-import React from 'react';
-import { Shield } from 'lucide-react';
+import { motion } from 'framer-motion';
+import AnimatedText from '../components/AnimatedText';
 
 export default function Privacy() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <div className="bg-gray-900 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-bold text-white mb-4">Privacy Policy</h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            How we protect and handle your data
-          </p>
-        </div>
-      </div>
-
-      {/* Content Section */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="bg-white rounded-lg shadow-lg p-8">
-          <div className="prose max-w-none">
-            <div className="flex items-center mb-8">
-              <Shield className="h-8 w-8 text-blue-600 mr-3" />
-              <h2 className="text-2xl font-bold text-gray-900">
-                Data Protection Commitment
-              </h2>
-            </div>
-
-            <section className="mb-8">
-              <h3 className="text-xl font-semibold mb-4">
-                Information Collection
-              </h3>
-              <p className="text-gray-600 mb-4">
-                We collect information that you provide directly to us,
-                including:
-              </p>
-              <ul className="list-disc pl-6 text-gray-600 space-y-2">
-                <li>Contact information (name, email, phone number)</li>
-                <li>Company details</li>
-                <li>Project requirements and specifications</li>
-                <li>Technical information about your systems (with consent)</li>
-              </ul>
-            </section>
-
-            <section className="mb-8">
-              <h3 className="text-xl font-semibold mb-4">
-                How We Use Your Information
-              </h3>
-              <p className="text-gray-600 mb-4">
-                Your information is used exclusively for:
-              </p>
-              <ul className="list-disc pl-6 text-gray-600 space-y-2">
-                <li>Providing requested security services</li>
-                <li>Communicating about your project</li>
-                <li>Improving our services</li>
-                <li>Legal compliance</li>
-              </ul>
-            </section>
-
-            <section className="mb-8">
-              <h3 className="text-xl font-semibold mb-4">Data Security</h3>
-              <p className="text-gray-600 mb-4">
-                We implement robust security measures to protect your
-                information:
-              </p>
-              <ul className="list-disc pl-6 text-gray-600 space-y-2">
-                <li>End-to-end encryption for sensitive data</li>
-                <li>Regular security audits</li>
-                <li>Access controls and authentication</li>
-                <li>Secure data storage and transmission</li>
-              </ul>
-            </section>
-
-            <section className="mb-8">
-              <h3 className="text-xl font-semibold mb-4">Your Rights</h3>
-              <p className="text-gray-600 mb-4">You have the right to:</p>
-              <ul className="list-disc pl-6 text-gray-600 space-y-2">
-                <li>Access your personal data</li>
-                <li>Request data correction</li>
-                <li>Request data deletion</li>
-                <li>Withdraw consent</li>
-                <li>Data portability</li>
-              </ul>
-            </section>
-
-            <section>
-              <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
-              <p className="text-gray-600">
-                For any privacy-related questions or concerns, please contact
-                our Data Protection Officer at redhatexpertise@yahoo.com
-              </p>
-            </section>
+    <div className="min-h-screen">
+      <header>
+        <motion.div 
+          className="bg-gradient-to-r from-gray-900 to-blue-900 py-16"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 className="text-4xl font-bold text-white mb-4">
+              Privacy Policy
+            </h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="text-xl text-gray-300"
+            >
+              How we handle and protect your information
+            </motion.p>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </header>
+
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="prose prose-lg max-w-none"
+        >
+          <section>
+            <h2>Information Collection and Use</h2>
+            <p>
+              We collect information to provide better services to our clients and improve our security assessments. The information we collect includes:
+            </p>
+            <ul>
+              <li>Contact information provided through our contact form</li>
+              <li>Technical information about security assessments</li>
+              <li>Communication records between you and our team</li>
+            </ul>
+          </section>
+
+          <section className="mt-12">
+            <h2>Data Protection</h2>
+            <p>
+              We implement robust security measures to protect your information:
+            </p>
+            <ul>
+              <li>Encryption of sensitive data</li>
+              <li>Secure storage systems</li>
+              <li>Limited access to personal information</li>
+              <li>Regular security audits</li>
+            </ul>
+          </section>
+
+          <section className="mt-12">
+            <h2>Information Sharing</h2>
+            <p>
+              We do not share your personal information with third parties except:
+            </p>
+            <ul>
+              <li>With your explicit consent</li>
+              <li>When required by law</li>
+              <li>To protect our rights and safety</li>
+            </ul>
+          </section>
+        </motion.div>
+      </main>
     </div>
   );
 }

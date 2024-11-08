@@ -4,18 +4,10 @@ import { Mail, Phone, Globe } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-gray-50 py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="text-center"
-        >
-          <AnimatedText
-            text="Ready to Secure Your Digital Assets?"
-            className="text-4xl font-bold text-gray-900"
-          />
+    <div className="min-h-screen">
+      <header>
+        <motion.div className="text-center">
+          <h1 className="text-4xl font-bold text-gray-900">Ready to Secure Your Digital Assets?</h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -25,7 +17,8 @@ export default function Contact() {
             Send us an email with your requirements and we'll get back to you within 24 hours.
           </motion.p>
         </motion.div>
-
+      </header>
+      <main>
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Contact Information */}
           <motion.div
@@ -96,7 +89,7 @@ export default function Contact() {
             </ul>
           </motion.div>
         </div>
-      </div>
+      </main>
     </div>
   );
 }
