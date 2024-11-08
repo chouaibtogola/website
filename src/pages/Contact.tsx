@@ -38,7 +38,12 @@ export default function Contact() {
               <Mail className="w-6 h-6 text-blue-600" />
               <div>
                 <h3 className="font-semibold">Email</h3>
-                <p className="text-gray-600">redhatexpertise@yahoo.com</p>
+                <a 
+                  href="mailto:redhatexpertise@yahoo.com"
+                  className="text-gray-600 hover:text-blue-600 transition-colors duration-300"
+                >
+                  redhatexpertise@yahoo.com
+                </a>
               </div>
             </div>
             
