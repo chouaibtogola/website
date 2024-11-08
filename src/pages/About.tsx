@@ -63,8 +63,8 @@ export default function About() {
 
 const stats = [
   {
-    value: '100+',
-    label: 'Clients Protected',
+    value: 'Trusted',
+    label: 'By Clients',
     icon: Shield
   },
   {
