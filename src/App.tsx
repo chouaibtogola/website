@@ -11,10 +11,12 @@ import StructuredData from './components/StructuredData';
 import PerformanceMonitor from './components/PerformanceMonitor';
 import BacklinkTracker from './components/BacklinkTracker';
 import ResponsiveWrapper from './components/ResponsiveWrapper';
+import GoogleAnalytics from './components/GoogleAnalytics';
 
 function App() {
   return (
     <Router>
+      <GoogleAnalytics />
       <PerformanceMonitor />
       <BacklinkTracker />
       <StructuredData />
