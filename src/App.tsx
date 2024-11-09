@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -12,8 +13,13 @@ import PerformanceMonitor from './components/PerformanceMonitor';
 import BacklinkTracker from './components/BacklinkTracker';
 import ResponsiveWrapper from './components/ResponsiveWrapper';
 import GoogleAnalytics from './components/GoogleAnalytics';
+import { initializeGoogleAnalytics } from './utils/analytics';
 
 function App() {
+  useEffect(() => {
+    initializeGoogleAnalytics();
+  }, []);
+
   return (
     <Router>
       <GoogleAnalytics />

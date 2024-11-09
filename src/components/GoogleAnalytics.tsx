@@ -5,11 +5,18 @@ export default function GoogleAnalytics() {
   const location = useLocation();
 
   useEffect(() => {
-    if (typeof window.gtag !== 'undefined') {
-      window.gtag('config', 'G-XGXDF2D6WY', {
-        page_path: location.pathname + location.search
-      });
-    }
+    const trackPageview = () => {
+      if (window.gtag) {
+        window.gtag('config', 'G-XGXDF2D6WY', {
+          page_path: location.pathname + location.search,
+          page_location: window.location.href,
+          page_title: document.title
+        });
+      }
+    };
+
+    // Track on mount and route change
+    trackPageview();
   }, [location]);
 
   return null;
