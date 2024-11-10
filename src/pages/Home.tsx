@@ -8,6 +8,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <header>
+        
         <ParallaxSection
           className="relative bg-cover bg-center py-32"
           backgroundImage="linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80')"
@@ -63,7 +64,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section aria-label="Technical Security Services" className="bg-gray-50 py-16">
+        <section id="technical-services" aria-label="Technical Services" className="bg-gray-50 py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
               Technical Security Testing
@@ -100,7 +101,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section aria-label="Social Engineering Services" className="bg-white py-16">
+        <section id="social-engineering" aria-label="Social Engineering Services" className="bg-white py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
               Social Engineering Services

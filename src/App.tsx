@@ -19,6 +19,7 @@ import SEO from './components/SEO';
 import SchemaMarkup from './components/SchemaMarkup';
 import PerformanceOptimizer from './components/PerformanceOptimizer';
 import { measureWebVitals } from './utils/web-vitals';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   useEffect(() => {
@@ -40,6 +41,7 @@ function App() {
       <SEO />
       <SchemaMarkup />
       <Router>
+        <ScrollToTop />
         <GoogleAnalytics />
         <PerformanceMonitor />
         <BacklinkTracker />

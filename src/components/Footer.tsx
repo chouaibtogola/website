@@ -1,29 +1,28 @@
-import { Shield, Mail, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Shield } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900">
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <footer className="bg-gray-900 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="space-y-4">
-            <div className="flex items-center">
+          {/* Company Info */}
+          <div>
+            <div className="flex items-center mb-4">
               <Shield className="h-8 w-8 text-blue-500" />
-              <span className="ml-2 text-white font-bold text-xl">
-                CyberGuard
-              </span>
+              <span className="ml-2 font-bold text-xl">RedHat</span>
             </div>
-            <p className="text-gray-400 text-sm">
-              Protecting your digital assets with expert cybersecurity
-              solutions.
+            <p className="text-gray-400">
+              Professional cybersecurity services to protect your digital assets
             </p>
           </div>
 
+          {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link
+                <Link 
                   to="/"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
@@ -31,7 +30,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
+                <Link 
                   to="/services"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
@@ -39,15 +38,15 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
+                <Link 
                   to="/about"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  About Us
+                  About
                 </Link>
               </li>
               <li>
-                <Link
+                <Link 
                   to="/contact"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
@@ -57,57 +56,66 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Services */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Legal</h3>
+            <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link
-                  to="/privacy"
+                <Link 
+                  to="/services"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Privacy Policy
+                  Penetration Testing
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/terms"
+                <Link 
+                  to="/services"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Terms of Service
+                  Vulnerability Assessment
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/services"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Phishing Simulation
                 </Link>
               </li>
             </ul>
           </div>
 
+          {/* Contact */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Contact Us</h3>
+            <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <ul className="space-y-2">
-              <li className="flex items-center text-gray-400">
-                <Mail className="h-5 w-5 mr-2" />
-                <a
-                  href="mailto:redhatexpertise@yahoo.com"
-                  className="hover:text-white transition-colors"
+              <li>
+                <a 
+                  href="mailto:redhatexpertise@proton.me"
+                  className="text-gray-400 hover:text-white transition-colors"
                 >
-                  redhatexpertise@yahoo.com
+                  redhatexpertise@proton.me
                 </a>
               </li>
-              <li className="flex items-center text-gray-400">
-                <Phone className="h-5 w-5 mr-2" />
-                <a
-                  href="tel:+22377544177"
-                  className="hover:text-white transition-colors"
+              <li>
+                <a 
+                  href="https://www.linkedin.com/in/chouaib-youssouf-togola-3a6664336/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
                 >
-                  (+223) 77544177
+                  LinkedIn
                 </a>
               </li>
+              <li className="text-gray-400">(+223) 77544177</li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-gray-800">
-          <p className="text-center text-gray-400 text-sm">
-            © {new Date().getFullYear()} CyberGuard. All rights reserved.
-          </p>
+        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+          <p>© {new Date().getFullYear()} RedHat Expertise. All rights reserved.</p>
         </div>
       </div>
     </footer>
