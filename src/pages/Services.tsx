@@ -5,35 +5,38 @@ import AnimatedText from '../components/AnimatedText';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
-const services = [
+const technicalServices = [
   {
     title: 'Penetration Testing',
-    description: 'Our expert team simulates real-world attacks to identify weaknesses in your systems, ensuring your defenses are robust against potential threats.',
+    description: 'Comprehensive system penetration testing to identify vulnerabilities in your networks, applications, and infrastructure before malicious hackers do.',
     Icon: Shield
   },
   {
-    title: 'Vulnerability Assessments',
-    description: 'We meticulously analyze your infrastructure to pinpoint and prioritize security gaps, providing actionable insights for fortification.',
+    title: 'Vulnerability Assessment',
+    description: 'Systematic scanning and evaluation of your systems to discover security weaknesses, followed by detailed remediation recommendations.',
     Icon: Wifi
   },
   {
+    title: 'Web Application Security',
+    description: 'In-depth testing of web applications against OWASP Top 10 vulnerabilities, including SQL injection, XSS, and authentication flaws.',
+    Icon: Lock
+  }
+];
+
+const socialServices = [
+  {
     title: 'Phishing Simulations',
-    description: 'Through realistic phishing scenarios, we educate your employees on recognizing and responding to threats, reducing the risk of successful attacks.',
+    description: 'Custom-designed phishing campaigns to test employee awareness and provide targeted training to strengthen your human firewall.',
     Icon: Users
   },
   {
-    title: 'OWASP Top 10 Assessment',
-    description: 'We evaluate your applications against the OWASP Top 10, addressing common threats like SQL injection, cross-site scripting, and security misconfiguration.',
-    Icon: Lock
-  },
-  {
     title: 'Social Engineering Testing',
-    description: "We conduct social engineering assessments to evaluate your team's resilience against manipulative tactics aimed at breaching security protocols.",
+    description: 'Comprehensive social engineering assessments including phone calls, physical access attempts, and USB drop tests.',
     Icon: UserX
   },
   {
-    title: '24/7 Monitoring',
-    description: 'Continuous monitoring and rapid response to potential security threats, ensuring your systems are protected around the clock.',
+    title: 'Security Awareness Training',
+    description: 'Interactive training programs to educate your employees about security best practices and common attack vectors.',
     Icon: Bell
   }
 ];
@@ -71,7 +74,7 @@ export default function Services() {
               Technical Security Services
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.slice(0, 3).map((service, index) => (
+              {technicalServices.map((service, index) => (
                 <ServiceCard
                   key={index}
                   title={service.title}
@@ -91,7 +94,7 @@ export default function Services() {
               Social Engineering Services
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.slice(3).map((service, index) => (
+              {socialServices.map((service, index) => (
                 <ServiceCard
                   key={index + 3}
                   title={service.title}
