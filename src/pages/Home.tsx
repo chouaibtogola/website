@@ -4,6 +4,39 @@ import { motion } from 'framer-motion';
 import AnimatedText from '../components/AnimatedText';
 import ParallaxSection from '../components/ParallaxSection';
 
+const industryTargets = [
+  {
+    industry: 'Financial Technology',
+    description: 'Protect sensitive financial data and ensure compliance with industry regulations.',
+    examples: 'Banks, Payment Processors, Digital Wallets'
+  },
+  {
+    industry: 'Healthcare',
+    description: 'Safeguard patient data and maintain HIPAA compliance.',
+    examples: 'Hospitals, Clinics, Health Tech Companies'
+  },
+  {
+    industry: 'E-commerce',
+    description: 'Secure customer transactions and protect user data.',
+    examples: 'Online Retailers, Marketplaces, Digital Stores'
+  },
+  {
+    industry: 'Government',
+    description: 'Protect critical infrastructure and sensitive information.',
+    examples: 'Government Agencies, Public Services, Defense'
+  },
+  {
+    industry: 'Education',
+    description: 'Secure student data and protect online learning platforms.',
+    examples: 'Universities, Online Learning Platforms, Schools'
+  },
+  {
+    industry: 'Technology',
+    description: 'Protect intellectual property and maintain service integrity.',
+    examples: 'SaaS Companies, Cloud Providers, Software Developers'
+  }
+];
+
 export default function Home() {
   return (
     <div className="min-h-screen">
@@ -43,6 +76,49 @@ export default function Home() {
       </header>
 
       <main>
+        <section aria-label="Industries We Serve" className="bg-gray-50 py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <AnimatedText
+                text="Industries That Need Our Services"
+                className="text-3xl font-bold text-gray-900"
+              />
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+                viewport={{ once: true }}
+                className="mt-4 text-xl text-gray-600"
+              >
+                Protecting businesses across all sectors from cyber threats
+              </motion.p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {industryTargets.map((industry, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300"
+                >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    {industry.industry}
+                  </h3>
+                  <p className="text-gray-600 mb-4">
+                    {industry.description}
+                  </p>
+                  <div className="text-sm text-gray-500 italic">
+                    {industry.examples}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section aria-label="Mission Statement" className="bg-white py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
