@@ -20,6 +20,7 @@ import SchemaMarkup from './components/SchemaMarkup';
 import PerformanceOptimizer from './components/PerformanceOptimizer';
 import { measureWebVitals } from './utils/web-vitals';
 import ScrollToTop from './components/ScrollToTop';
+import Pricing from './pages/Pricing';
 
 function App() {
   useEffect(() => {
@@ -53,6 +54,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/services" element={<Services />} />
+                <Route path="/pricing" element={<Pricing />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/privacy" element={<Privacy />} />
