@@ -5,15 +5,33 @@ import AnimatedText from '../components/AnimatedText';
 export default function About() {
   return (
     <div className="min-h-screen">
-      <header>
-        <motion.div className="bg-gradient-to-r from-gray-900 to-blue-900 py-20">
-          <h1 className="text-5xl font-bold text-white">About Us</h1>
-          <AnimatedText
-            text="Leading the way in cybersecurity excellence"
-            className="text-2xl text-blue-100 max-w-3xl mx-auto"
-          />
-        </motion.div>
+      <header className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-indigo-900 to-gray-900"></div>
+        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-400 via-transparent to-transparent animate-pulse"></div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-white">
+              About Us
+            </h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="text-xl text-blue-100 max-w-3xl mx-auto"
+            >
+              Leading the way in cybersecurity excellence
+            </motion.p>
+          </motion.div>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-gray-50"></div>
       </header>
+
       <main>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -53,12 +71,12 @@ export default function About() {
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ scale: 1.05 }}
                   viewport={{ once: true }}
-                  className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                  className="bg-gradient-to-br from-white to-blue-50 rounded-xl shadow-xl p-8 transition-all duration-300 border border-blue-100"
                 >
-                  <div className="flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 mx-auto mb-6">
-                    <stat.icon className="h-8 w-8 text-blue-600" />
+                  <div className="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 mb-6">
+                    <stat.icon className="h-7 w-7 text-white" />
                   </div>
-                  <div className="text-3xl font-bold text-gray-900 mb-3 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+                  <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent mb-3">
                     {stat.value}
                   </div>
                   <div className="text-lg text-gray-600">{stat.label}</div>
@@ -87,7 +105,7 @@ export default function About() {
                   transition={{ delay: index * 0.2 }}
                   whileHover={{ scale: 1.05 }}
                   viewport={{ once: true }}
-                  className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300"
+                  className="bg-gradient-to-br from-white to-blue-50 rounded-xl shadow-xl p-8 transition-all duration-300 border border-blue-100"
                 >
                   <div className="h-1 w-20 bg-gradient-to-r from-blue-600 to-blue-800 mb-6 rounded-full"></div>
                   <h3 className="text-2xl font-semibold text-gray-900 mb-4">{value.title}</h3>

@@ -44,14 +44,18 @@ const socialServices = [
 export default function Services() {
   return (
     <div className="min-h-screen">
-      <header>
-        <motion.div 
-          className="bg-gradient-to-r from-gray-900 to-blue-900 py-16"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+      <header className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-indigo-900 to-gray-900"></div>
+        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-400 via-transparent to-transparent animate-pulse"></div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-white">
               Comprehensive Cybersecurity Services
             </h1>
             <motion.p
@@ -62,81 +66,68 @@ export default function Services() {
             >
               Professional security testing and assessment solutions to protect your digital infrastructure
             </motion.p>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-gray-50"></div>
       </header>
 
       <main>
         {/* Technical Services Section */}
-        <section aria-label="Technical Services" className="py-16">
+        <section aria-label="Technical Services" className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               Technical Security Services
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {technicalServices.map((service, index) => (
-                <ServiceCard
-                  key={index}
-                  title={service.title}
-                  description={service.description}
-                  Icon={service.Icon}
-                  index={index}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Social Engineering Section */}
-        <section aria-label="Social Engineering Services" className="bg-gray-50 py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              Social Engineering Services
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {socialServices.map((service, index) => (
-                <ServiceCard
-                  key={index + 3}
-                  title={service.title}
-                  description={service.description}
-                  Icon={service.Icon}
-                  index={index + 3}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Process Section */}
-        <section aria-label="Security Testing Process" className="bg-white py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Our Security Testing Process
-              </h2>
-              <p className="text-xl text-gray-600">
-                A systematic approach to identifying and addressing security vulnerabilities
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              {process.map((step, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="text-center"
+                  className="bg-gradient-to-br from-white to-blue-50 rounded-xl shadow-xl p-8 transition-all duration-300 border border-blue-100"
                 >
                   <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    className="flex items-center justify-center w-14 h-14 rounded-full bg-blue-100 mx-auto mb-4"
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                    className="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 mb-6"
                   >
-                    <span className="text-blue-600 font-bold text-xl">{index + 1}</span>
+                    <service.Icon className="h-7 w-7 text-white" />
                   </motion.div>
-                  <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{step.description}</p>
+                  <h3 className="text-xl font-bold mb-3 text-gray-900">{service.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Social Engineering Section */}
+        <section aria-label="Social Engineering Services" className="bg-white py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              Social Engineering Services
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {socialServices.map((service, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-gradient-to-br from-white to-blue-50 rounded-xl shadow-xl p-8 transition-all duration-300 border border-blue-100"
+                >
+                  <motion.div
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                    className="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 mb-6"
+                  >
+                    <service.Icon className="h-7 w-7 text-white" />
+                  </motion.div>
+                  <h3 className="text-xl font-bold mb-3 text-gray-900">{service.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{service.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -144,43 +135,30 @@ export default function Services() {
         </section>
 
         {/* CTA Section */}
-        <section aria-label="Contact Us" className="bg-blue-600 py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Ready to enhance your security?
-            </h2>
-            <p className="text-xl text-blue-100 mb-8">
-              Contact us for a comprehensive security assessment
-            </p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-semibold rounded-md text-blue-600 bg-white hover:bg-gray-50 transition-all duration-300 hover:scale-105 transform"
-            >
-              Get Started
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
+        <section aria-label="Contact Us" className="py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-gradient-to-br from-blue-900 to-indigo-900 rounded-3xl p-12 relative overflow-hidden">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-400/20 via-transparent to-transparent"></div>
+              
+              <div className="relative text-center">
+                <h2 className="text-3xl font-bold text-white mb-4">
+                  Ready to enhance your security?
+                </h2>
+                <p className="text-xl text-blue-100 mb-8">
+                  Contact us for a comprehensive security assessment
+                </p>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center px-8 py-4 bg-white text-blue-900 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                >
+                  Get Started
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
       </main>
     </div>
   );
 }
-
-const process = [
-  {
-    title: 'Reconnaissance',
-    description: 'We gather intelligence and map out potential attack vectors in your system.'
-  },
-  {
-    title: 'Attack Execution',
-    description: 'We perform controlled attacks to identify vulnerabilities and security weaknesses.'
-  },
-  {
-    title: 'Vulnerability Analysis',
-    description: 'We analyze discovered vulnerabilities and assess their potential impact.'
-  },
-  {
-    title: 'Detailed Reporting',
-    description: 'We provide comprehensive reports with findings and remediation recommendations.'
-  }
-];
