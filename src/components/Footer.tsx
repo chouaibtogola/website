@@ -117,7 +117,7 @@ export default function Footer() {
                   LinkedIn
                 </a>
               </li>
-              <li className="text-gray-400">(+223) 77544177</li>
+              <li className="text-gray-400">(+1) 742 688 2239 </li>
             </ul>
           </div>
         </div>
