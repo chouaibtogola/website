@@ -1,4 +1,4 @@
-import { Menu, X, Shield } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -9,7 +9,6 @@ export default function Navbar() {
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/services' },
-    { name: 'Pricing', href: '/pricing' },
     { name: 'About', href: '/about' },
     { name: 'Contact', href: '/contact' },
   ];
@@ -25,9 +24,9 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <Link to="/" className="flex items-center">
-              <Shield className="h-8 w-8 text-blue-500" />
-              <span className="ml-2 text-white font-bold text-xl">RedHat</span>
+            <Link to="/" className="flex items-center gap-2">
+              <img src="/logo.webp" alt="RedHatExpertise" className="h-10 w-10" />
+              <span className="text-white font-light text-lg">RedHatExpertise</span>
             </Link>
           </div>
           

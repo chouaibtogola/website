@@ -1,117 +1,137 @@
 import { motion } from 'framer-motion';
-import AnimatedText from '../components/AnimatedText';
-import { Mail, Phone, Globe } from 'lucide-react';
+import { Mail, Phone, Globe, ArrowRight } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <div className="min-h-screen">
-      <header>
-        <motion.div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900">Ready to Secure Your Digital Assets?</h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="mt-4 text-xl text-gray-600"
-          >
-            Send us an email with your requirements or connect with us on LinkedIn. We'll get back to you within 24 hours.
-          </motion.p>
-        </motion.div>
-      </header>
-      <main>
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Contact Information */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="space-y-6"
-          >
-            <div className="flex items-center space-x-3">
-              <Mail className="w-6 h-6 text-blue-600" />
-              <div>
-                <h3 className="font-semibold">Email</h3>
-                <a 
-                  href="mailto:redhatexpertise@proton.me"
-                  className="text-gray-600 hover:text-blue-600 transition-colors duration-300"
-                >
-                  redhatexpertise@proton.me
-                </a>
-              </div>
-            </div>
-            
-            <div className="flex items-center space-x-3">
-              <svg 
-                className="w-6 h-6 text-blue-600" 
-                fill="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-              </svg>
-              <div>
-                <h3 className="font-semibold">LinkedIn</h3>
-                <a 
-                  href="https://www.linkedin.com/in/chouaib-youssouf-togola-3a6664336/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-blue-600 transition-colors duration-300"
-                >
-                  Message me on LinkedIn
-                </a>
-                <p className="text-sm text-gray-500 mt-1">
-                  Feel free to connect and send a direct message
-                </p>
-              </div>
-            </div>
-            
-            <div className="flex items-center space-x-3">
-              <Phone className="w-6 h-6 text-blue-600" />
-              <div>
-                <h3 className="font-semibold">Phone</h3>
-                <p className="text-gray-600">(+1) 7426882239</p>
-              </div>
-            </div>
-            
-            <div className="flex items-center space-x-3">
-              <Globe className="w-6 h-6 text-blue-600" />
-              <div>
-                <h3 className="font-semibold">Location</h3>
-                <p className="text-gray-600">Global operations</p>
-              </div>
-            </div>
-          </motion.div>
+    <div className="min-h-screen bg-neutral-50">
+      <header className="relative bg-neutral-900 overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)',
+            backgroundSize: '50px 50px'
+          }}></div>
+        </div>
 
-          {/* What to Include Section */}
+        <div className="relative max-w-6xl mx-auto px-6 py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="md:col-span-2 bg-white p-6 rounded-lg shadow-sm"
+            transition={{ duration: 0.6 }}
           >
-            <h3 className="text-xl font-semibold mb-4">What to Include in Your Email:</h3>
-            <ul className="space-y-3 text-gray-600">
-              <li className="flex items-center space-x-2">
-                <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
-                <span>Your name and company name</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
-                <span>Type of security service needed</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
-                <span>Brief description of your project/requirements</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
-                <span>Web application URL (if applicable)</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
-                <span>Preferred contact method</span>
-              </li>
-            </ul>
+            <h1 className="text-5xl lg:text-6xl font-light text-white mb-6 tracking-tight">
+              Let's discuss your security requirements
+            </h1>
+            <p className="text-xl text-neutral-400 font-light">
+              We'll get back to you within 24 hours
+            </p>
           </motion.div>
+        </div>
+      </header>
+
+      <main className="py-24">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="space-y-8"
+            >
+              <div className="flex gap-4">
+                <Mail className="w-6 h-6 text-red-600 flex-shrink-0" />
+                <div>
+                  <h3 className="text-lg font-medium text-neutral-900 mb-1">Email</h3>
+                  <a
+                    href="mailto:redhatexpertise@proton.me"
+                    className="text-neutral-600 hover:text-red-600 transition-colors"
+                  >
+                    redhatexpertise@proton.me
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <Phone className="w-6 h-6 text-red-600 flex-shrink-0" />
+                <div>
+                  <h3 className="text-lg font-medium text-neutral-900 mb-1">Phone</h3>
+                  <p className="text-neutral-600">(+1) 742-688-2239</p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <Globe className="w-6 h-6 text-red-600 flex-shrink-0" />
+                <div>
+                  <h3 className="text-lg font-medium text-neutral-900 mb-1">Location</h3>
+                  <p className="text-neutral-600">Global operations</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="md:col-span-2 bg-white border border-neutral-200 p-12"
+            >
+              <h2 className="text-2xl font-light text-neutral-900 mb-8">Send us your details</h2>
+              <form className="space-y-6">
+                <div>
+                  <label className="block text-sm font-medium text-neutral-900 mb-2">Name</label>
+                  <input
+                    type="text"
+                    className="w-full px-4 py-3 border border-neutral-200 focus:outline-none focus:border-red-600 transition-colors"
+                    placeholder="Your name"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-neutral-900 mb-2">Company</label>
+                  <input
+                    type="text"
+                    className="w-full px-4 py-3 border border-neutral-200 focus:outline-none focus:border-red-600 transition-colors"
+                    placeholder="Your company"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-neutral-900 mb-2">Email</label>
+                  <input
+                    type="email"
+                    className="w-full px-4 py-3 border border-neutral-200 focus:outline-none focus:border-red-600 transition-colors"
+                    placeholder="your@email.com"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-neutral-900 mb-2">Service Type</label>
+                  <select className="w-full px-4 py-3 border border-neutral-200 focus:outline-none focus:border-red-600 transition-colors bg-white">
+                    <option>Select a service</option>
+                    <option>Penetration Testing</option>
+                    <option>Vulnerability Assessment</option>
+                    <option>Social Engineering Testing</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-neutral-900 mb-2">Message</label>
+                  <textarea
+                    rows={6}
+                    className="w-full px-4 py-3 border border-neutral-200 focus:outline-none focus:border-red-600 transition-colors"
+                    placeholder="Tell us about your security requirements"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="inline-flex items-center px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-medium transition-colors"
+                >
+                  Send Message
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </button>
+              </form>
+            </motion.div>
+          </div>
         </div>
       </main>
     </div>
