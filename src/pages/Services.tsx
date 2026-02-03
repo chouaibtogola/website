@@ -1,161 +1,333 @@
-import { Shield, Wifi, Users, Lock, UserX, Bell } from 'lucide-react';
+import { Users, AlertCircle, Lock, Phone, FileText, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
-import ServiceCard from '../components/ServiceCard';
-import AnimatedText from '../components/AnimatedText';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
-const technicalServices = [
+const primaryServices = [
   {
-    title: 'Penetration Testing',
-    description: 'Comprehensive system penetration testing to identify vulnerabilities in your networks, applications, and infrastructure before malicious hackers do.',
-    Icon: Shield
+    title: 'Phishing Simulations',
+    description: 'Targeted email attack campaigns designed to mimic real-world threats. Test click-through rates, credential harvesting, and employee susceptibility with full analytics and reporting.',
+    Icon: AlertCircle,
+    details: [
+      'Custom email templates based on real threats',
+      'Multi-stage campaign tracking',
+      'Detailed click and submission analytics',
+      'Pre and post-campaign training recommendations',
+      'Department-level reporting and insights'
+    ]
   },
   {
-    title: 'Vulnerability Assessment',
-    description: 'Systematic scanning and evaluation of your systems to discover security weaknesses, followed by detailed remediation recommendations.',
-    Icon: Wifi
+    title: 'Voice & Pretexting',
+    description: 'Phone-based social engineering tests to evaluate how employees handle authority, urgency, and trust manipulation. Test information disclosure and process compliance.',
+    Icon: Phone,
+    details: [
+      'Custom pretext scenarios aligned to your industry',
+      'Trained social engineers performing calls',
+      'Recording and documentation (with consent)',
+      'Detailed analysis of employee responses',
+      'Recommendations for policy improvements'
+    ]
   },
   {
-    title: 'Web Application Security',
-    description: 'In-depth testing of web applications against OWASP Top 10 vulnerabilities, including SQL injection, XSS, and authentication flaws.',
+    title: 'Personnel Security Testing',
+    description: 'Comprehensive assessment of how your organization handles sensitive information, badge access, credential sharing, and personnel vetting across departments.',
+    Icon: Users,
+    details: [
+      'Physical security and badge access testing',
+      'Sensitive document discovery in unsecured areas',
+      'Badge/credential replication assessment',
+      'Personnel information leakage evaluation',
+      'Cross-departmental security culture analysis'
+    ]
+  }
+];
+
+const supportingServices = [
+  {
+    title: 'Security Awareness Training',
+    description: 'Custom training programs developed from your assessment findings to improve employee security behavior and organizational risk awareness.',
+    Icon: TrendingUp
+  },
+  {
+    title: 'Executive Briefings',
+    description: 'High-level reporting designed for C-suite and board-level stakeholders, focusing on organizational risk and strategic recommendations.',
+    Icon: FileText
+  },
+  {
+    title: 'Remediation Validation',
+    description: 'Follow-up testing to verify that security improvements and training interventions are actually reducing human attack surface.',
     Icon: Lock
   }
 ];
 
-const socialServices = [
+const methodology = [
   {
-    title: 'Phishing Simulations',
-    description: 'Custom-designed phishing campaigns to test employee awareness and provide targeted training to strengthen your human firewall.',
-    Icon: Users
+    phase: 'Planning & Authorization',
+    description: 'Secure executive approval, define scope, establish legal agreements, and design realistic threat scenarios aligned to your industry and organizational context.'
   },
   {
-    title: 'Social Engineering Testing',
-    description: 'Comprehensive social engineering assessments including phone calls, physical access attempts, and USB drop tests.',
-    Icon: UserX
+    phase: 'Campaign Development',
+    description: 'Create authentic attack scenarios based on real-world threats. Develop phishing templates, pretext narratives, and testing protocols with full documentation.'
   },
   {
-    title: 'Security Awareness Training',
-    description: 'Interactive training programs to educate your employees about security best practices and common attack vectors.',
-    Icon: Bell
+    phase: 'Execution',
+    description: 'Run authorized simulations with full safeguards. Monitor results in real-time, collect behavioral data, and document employee responses throughout campaigns.'
+  },
+  {
+    phase: 'Analysis & Reporting',
+    description: 'Comprehensive findings analysis, risk quantification, and actionable recommendations. Executive summary, detailed technical reports, and training curriculum development.'
+  }
+];
+
+const whyHuman = [
+  {
+    statistic: '82%',
+    insight: 'of breaches involve a human element'
+  },
+  {
+    statistic: '3.4s',
+    insight: 'average time from phishing email to credential entry'
+  },
+  {
+    statistic: '60%',
+    insight: 'of employees click malicious links in tests'
+  },
+  {
+    statistic: '40%',
+    insight: 'fall for social engineering pretexts'
   }
 ];
 
 export default function Services() {
   return (
-    <div className="min-h-screen">
-      <header className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-indigo-900 to-gray-900"></div>
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-400 via-transparent to-transparent animate-pulse"></div>
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+    <div className="min-h-screen bg-neutral-50">
+      <header className="relative bg-neutral-900 overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)',
+            backgroundSize: '50px 50px'
+          }}></div>
+        </div>
+
+        <div className="relative max-w-6xl mx-auto px-6 py-32 lg:py-40">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-white">
-              Comprehensive Cybersecurity Services
+            <h1 className="text-5xl lg:text-6xl font-light text-white mb-6 tracking-tight">
+              Human Attack Path Testing Services
             </h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-xl text-gray-300 max-w-3xl mx-auto mt-4"
-            >
-              Professional security testing and assessment solutions to protect your digital infrastructure
-            </motion.p>
+            <p className="text-xl text-neutral-400 font-light">
+              Authorized social engineering, phishing, and personnel security simulations designed to strengthen your organization
+            </p>
           </motion.div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-gray-50"></div>
       </header>
 
       <main>
-        {/* Technical Services Section */}
-        <section aria-label="Technical Services" className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              Technical Security Services
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {technicalServices.map((service, index) => (
+        {/* Primary Services */}
+        <section className="py-24 bg-white">
+          <div className="max-w-6xl mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="mb-16"
+            >
+              <h2 className="text-sm font-medium text-neutral-500 uppercase tracking-wider mb-3">Core Services</h2>
+              <p className="text-3xl font-light text-neutral-900">
+                Three pillars of human attack surface assessment
+              </p>
+            </motion.div>
+
+            <div className="space-y-8">
+              {primaryServices.map((service, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 50 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-gradient-to-br from-white to-blue-50 rounded-xl shadow-xl p-8 transition-all duration-300 border border-blue-100"
+                  className="border border-neutral-200 p-8 lg:p-12"
                 >
-                  <motion.div
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.5 }}
-                    className="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 mb-6"
-                  >
-                    <service.Icon className="h-7 w-7 text-white" />
-                  </motion.div>
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">{service.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                  <div className="flex gap-6 mb-6">
+                    <service.Icon className="h-8 w-8 text-red-600 flex-shrink-0" />
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-light text-neutral-900 mb-2">
+                        {service.title}
+                      </h3>
+                      <p className="text-neutral-600 leading-relaxed">
+                        {service.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="ml-14 grid md:grid-cols-2 gap-x-8 gap-y-3">
+                    {service.details.map((detail, idx) => (
+                      <div key={idx} className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-sm text-neutral-600">{detail}</p>
+                      </div>
+                    ))}
+                  </div>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Social Engineering Section */}
-        <section aria-label="Social Engineering Services" className="bg-white py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              Social Engineering Services
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {socialServices.map((service, index) => (
+        {/* Supporting Services */}
+        <section className="py-24 bg-neutral-50">
+          <div className="max-w-6xl mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="mb-16"
+            >
+              <h2 className="text-sm font-medium text-neutral-500 uppercase tracking-wider mb-3">Supporting Services</h2>
+              <p className="text-3xl font-light text-neutral-900">
+                Beyond testing: training, reporting, and validation
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {supportingServices.map((service, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 50 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-gradient-to-br from-white to-blue-50 rounded-xl shadow-xl p-8 transition-all duration-300 border border-blue-100"
+                  className="border border-neutral-200 bg-white p-8"
                 >
-                  <motion.div
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.5 }}
-                    className="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 mb-6"
-                  >
-                    <service.Icon className="h-7 w-7 text-white" />
-                  </motion.div>
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">{service.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                  <service.Icon className="h-8 w-8 text-red-600 mb-4" />
+                  <h3 className="text-lg font-medium text-neutral-900 mb-3">
+                    {service.title}
+                  </h3>
+                  <p className="text-neutral-600 leading-relaxed">
+                    {service.description}
+                  </p>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section aria-label="Contact Us" className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-gradient-to-br from-blue-900 to-indigo-900 rounded-3xl p-12 relative overflow-hidden">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-400/20 via-transparent to-transparent"></div>
-              
-              <div className="relative text-center">
-                <h2 className="text-3xl font-bold text-white mb-4">
-                  Ready to enhance your security?
-                </h2>
-                <p className="text-xl text-blue-100 mb-8">
-                  Contact us for a comprehensive security assessment
-                </p>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center px-8 py-4 bg-white text-blue-900 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+        {/* Why Human Attack Paths */}
+        <section className="py-24 bg-white">
+          <div className="max-w-6xl mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="mb-16"
+            >
+              <h2 className="text-sm font-medium text-neutral-500 uppercase tracking-wider mb-3">The Human Factor</h2>
+              <p className="text-3xl font-light text-neutral-900">
+                Why organizations invest in human attack path testing
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-4 gap-8">
+              {whyHuman.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="border border-neutral-200 p-8 bg-white"
                 >
-                  Get Started
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </div>
+                  <div className="text-4xl font-light text-red-600 mb-3">{item.statistic}</div>
+                  <p className="text-neutral-700 font-light">{item.insight}</p>
+                </motion.div>
+              ))}
             </div>
+          </div>
+        </section>
+
+        {/* Methodology */}
+        <section className="py-24 bg-neutral-50">
+          <div className="max-w-6xl mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="mb-16"
+            >
+              <h2 className="text-sm font-medium text-neutral-500 uppercase tracking-wider mb-3">Our Process</h2>
+              <p className="text-3xl font-light text-neutral-900">
+                Structured approach to authorized human attack simulation
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-4 gap-6">
+              {methodology.map((phase, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="relative"
+                >
+                  <div className="border border-neutral-200 bg-white p-8">
+                    <div className="text-sm font-medium text-red-600 mb-3">
+                      Step {index + 1}
+                    </div>
+                    <h3 className="text-lg font-medium text-neutral-900 mb-2">
+                      {phase.phase}
+                    </h3>
+                    <p className="text-sm text-neutral-600 leading-relaxed">
+                      {phase.description}
+                    </p>
+                  </div>
+                  {index < methodology.length - 1 && (
+                    <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-neutral-200 transform -translate-y-1/2"></div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-24 bg-neutral-900 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute inset-0" style={{
+              backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)',
+              backgroundSize: '50px 50px'
+            }}></div>
+          </div>
+
+          <div className="relative max-w-4xl mx-auto px-6 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl font-light text-white mb-6">
+                Ready to test your human attack surface?
+              </h2>
+              <p className="text-xl text-neutral-400 mb-10 font-light">
+                Schedule a consultation to discuss your organization's security assessment needs
+              </p>
+              <Link
+                to="/contact"
+                className="inline-flex items-center px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-medium transition-colors duration-200"
+              >
+                Schedule Assessment
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </motion.div>
           </div>
         </section>
       </main>
